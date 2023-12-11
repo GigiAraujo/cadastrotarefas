@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Tarefas</title>
+    <style>
+        /* Estilos (pode personalizar conforme necessário) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #tarefasContainer {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #novaTarefa {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .tarefa {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .excluir {
+            color: #ff0000;
+            cursor: pointer;
+        }
+
+        .bot{
+            background-color: rgb(88, 146, 126);
+            color: white;
+            width: 120px;
+            height: 30px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="tarefasContainer">
+    <input type="text" id="novaTarefa" placeholder="Nova tarefa..." required>
+    <button class="bot" onclick="adicionarTarefa()">Adicionar</button>
+
+    <div id="listaTarefas"></div>
+</div>
+
+<script>
+    function adicionarTarefa() {
+        var novaTarefaTexto = document.getElementById('novaTarefa').value;
+        if (novaTarefaTexto.trim() === '') {
+            alert('Digite uma tarefa válida.');
+            return;
+        }
+
+        var listaTarefas = document.getElementById('listaTarefas');
+        var novaTarefa = document.createElement('div');
+        novaTarefa.className = 'tarefa';
+        novaTarefa.innerHTML = `
+            <span>${novaTarefaTexto}</span>
+            <span class="excluir" onclick="excluirTarefa(this)">Excluir</span>
+        `;
+        listaTarefas.appendChild(novaTarefa);
+
+        // Limpa o campo de texto
+        document.getElementById('novaTarefa').value = '';
+    }
+
+    function excluirTarefa(elemento) {
+        var tarefa = elemento.parentElement;
+        tarefa.remove();
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Estilos (pode personalizar conforme necessário) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<form id="loginForm">
+    <label for="usuarioLogin">Usuário:</label>
+    <input type="text" id="usuarioLogin" name="usuarioLogin" required>
+
+    <label for="senhaLogin">Senha:</label>
+    <input type="password" id="senhaLogin" name="senhaLogin" required>
+
+    <button type="button" onclick="realizarLogin()">Entrar</button>
+
+
+<p>Não tem uma conta? <a href="login.html">Cadastre-se já</a></p>
+</form>
+<script>
+    function realizarLogin() {
+        var usuarioLogin = document.getElementById('usuarioLogin').value;
+        var senhaLogin = document.getElementById('senhaLogin').value;
+
+        // Aqui você pode adicionar lógica para autenticar o usuário, por exemplo.
+        // Se a autenticação for bem-sucedida, pode redirecionar o usuário para a página desejada.
+
+        alert('Login bem-sucedido!');
+    }
+</script>
+
+</body>
+</html>
